@@ -17,6 +17,7 @@ import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { CareerComponent } from './admin/career/career.component';
 import { RoadmapComponent } from './admin/roadmap/roadmap.component';
+import { CareerAdminService } from './admin/career/career-admin.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,9 @@ import { RoadmapComponent } from './admin/roadmap/roadmap.component';
     AppRoutingModule,
     HomeModule
   ],
-  providers: [],
+  providers: [
+    CareerAdminService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,1 +1,13 @@
-<p>career works!</p>
+<h2>Crear Carrera</h2>
+<p>
+  <span>Nombre:</span>
+  <input type="text" [(ngModel)]="name">
+</p>
+<p>
+  <span>Descripcion</span>
+  <input type="text" [(ngModel)]="description">
+</p>
+
+<p>
+  <button (click)="this.newCareer()">Guardar</button>
+</p>
