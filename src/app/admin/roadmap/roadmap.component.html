@@ -1,1 +1,37 @@
-<p>roadmap works!</p>
+<h2>Crear Roadmap</h2>
+<p>
+    <span>id:</span>
+    <input type="text" [(ngModel)]="id">
+</p>
+<p>
+    <span>Name:</span>
+    <input type="text" [(ngModel)]="Name">
+</p>
+
+<p>
+    <span>description: </span>
+    <input type="text" [(ngModel)]="description">
+</p>
+<p>
+    <span>detail: </span>
+    <input type="text" [(ngModel)]="detail">
+</p>
+
+<p>
+    <span>iconId:  </span>
+    <input type="text" [(ngModel)]="iconId">
+</p>
+<p>
+    <span>bannerId:  </span>
+    <input type="text" [(ngModel)]="bannerId">
+</p>
+
+<p>
+    <span>active:   </span>
+    <input type="text" [(ngModel)]="active">
+</p>
+
+
+<p>
+    <button (click)="this.newroadmaps()">Guardar</button>
+</p>
