@@ -17,6 +17,8 @@ import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { CareerComponent } from './admin/career/career.component';
 import { RoadmapComponent } from './admin/roadmap/roadmap.component';
+import { CareerPageComponent } from './pages/career-page/career-page.component';
+import { RoadmapPageComponent } from './pages/roadmap-page/roadmap-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { RoadmapComponent } from './admin/roadmap/roadmap.component';
     FooterComponent,
     LoginComponent,
     CareerComponent,
-    RoadmapComponent
+    RoadmapComponent,
+    CareerPageComponent,
+    RoadmapPageComponent
   ],
   imports: [
     BrowserModule,

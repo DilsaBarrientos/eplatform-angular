@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeServiceService } from './home-service.service';
+import { CareerHome } from './model/career-list.model';
 
 @Component({
     selector: 'app-home',
@@ -7,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HomeComponent implements OnInit {
+
+    careersList: CareerHome[];
+
     model = {
         left: true,
         middle: false,
@@ -15,7 +20,9 @@ export class HomeComponent implements OnInit {
 
     focus;
     focus1;
-    constructor() { }
+    constructor(private readonly homeService: HomeServiceService) { }
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.careersList = this.homeService.getCareers();
+    }
 }
