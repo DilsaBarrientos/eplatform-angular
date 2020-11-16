@@ -1,8 +1,11 @@
-export interface CareerHome{
+export interface CareerListResponse{
     id: Number,
     name: String,
     description: String,
-    icon: String,
-    totalRoadmaps: Number,
-    totalCourses: Number
+    iconId?: String,
+    active: Boolean,
+    totalRoadmaps?: Number,
+    totalCourses?: Number,
+    createDate: String,
+    updateDate: String
 }
