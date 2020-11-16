@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CareerPageService } from './career-page.service';
-import { CareerInfo } from './model/career-info-model';
-import { RoadmapList } from './model/roadmap-list-model';
+import { CareerSaveResponse } from './model/career-response-model';
+import { RoadmapListResponse } from './model/roadmap-list-model';
 
 @Component({
   selector: 'app-career-page',
@@ -10,17 +11,29 @@ import { RoadmapList } from './model/roadmap-list-model';
 })
 export class CareerPageComponent implements OnInit {
 
+  careerId: String;
 
-  roadmaps: RoadmapList[];
+  roadmaps: RoadmapListResponse[];
 
-  careerInfo: CareerInfo;
+  careerInfo: CareerSaveResponse;
 
-  constructor(private readonly careerPageService: CareerPageService) { }
+  constructor(private readonly careerPageService: CareerPageService,
+    private readonly router: Router, private readonly route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
-    this.roadmaps = this.careerPageService.getRoadmaps();
-    this.careerInfo = this.careerPageService.getCareerById(2);
+    this.route.paramMap.subscribe(params => {
+      this.careerId = params.get('id');
+      this.getCareerInfo();
+    })
   }
 
+  getCareerInfo(): void{
+    this.careerPageService.getCareerById(this.careerId)
+    .subscribe(career => {
+      this.careerInfo = career;
+      this.roadmaps = career.roadmaps;
+    });
+  }
+  
 }
