@@ -17,8 +17,7 @@ export class CareerPageComponent implements OnInit {
 
   careerInfo: CareerSaveResponse;
 
-  constructor(private readonly careerPageService: CareerPageService,
-    private readonly router: Router, private readonly route: ActivatedRoute) { }
+  constructor(private readonly careerPageService: CareerPageService, private readonly route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -29,7 +28,7 @@ export class CareerPageComponent implements OnInit {
   }
 
   getCareerInfo(): void{
-    this.careerPageService.getCareerById(this.careerId)
+   this.careerPageService.getCareerById(this.careerId)
     .subscribe(career => {
       this.careerInfo = career;
       this.roadmaps = career.roadmaps;

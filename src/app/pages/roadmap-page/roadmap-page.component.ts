@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CourseList } from './model/course-list-mode';
-import { RoadmapInfo } from './model/roadmap-info-model';
+import { ActivatedRoute } from '@angular/router';
+import { CourseList } from './model/course-list-model';
+import { RoadmapSaveResponse } from './model/roadmap-save-response-model';
 import { RoadmapPageService } from './roadmap-page.service';
 
 @Component({
@@ -10,15 +11,31 @@ import { RoadmapPageService } from './roadmap-page.service';
 })
 export class RoadmapPageComponent implements OnInit {
 
-  roadmapInfo: RoadmapInfo;
+  roadmapId: String;
 
-  courses: CourseList[];
+  roadmapInfo: RoadmapSaveResponse;
 
-  constructor(private readonly roadmapPageService: RoadmapPageService) { }
+  courses: Array<CourseList>;
+
+  constructor(private readonly roadmapPageService: RoadmapPageService,
+    private readonly route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.roadmapInfo = this.roadmapPageService.getRoadmapById(1);
-    this.courses = this.roadmapPageService.getCourses();
+
+    this.route.paramMap.subscribe(params => {
+      this.roadmapId = params.get('id');
+      this.getRoadmapInfo();
+    });
+
+  }
+
+  getRoadmapInfo(): void{
+    this.roadmapPageService.getRoadmapById(this.roadmapId)
+    .subscribe(roadmap => {
+      this.roadmapInfo = roadmap;
+      this.courses = roadmap.courseIds;
+
+    });
   }
 
 }
