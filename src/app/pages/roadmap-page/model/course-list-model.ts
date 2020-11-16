@@ -2,10 +2,9 @@ export interface CourseList{
     id: Number,
     name: String,
     description: String,
-    icon: String,
-    totalClasses: Number,
+    iconId?: String,
     createDate: String,
-    updateDate: String,
-    active: Boolean,
-    level: String
+    updateDate?: String,
+    active?: Boolean,
+    level?: String
 }

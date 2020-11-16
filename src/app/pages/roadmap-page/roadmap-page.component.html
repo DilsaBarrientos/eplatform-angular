@@ -60,9 +60,9 @@
                       <h6 class="text-primary text-uppercase">{{course.name}}</h6>
                       <p class="description mt-3">{{course.description}}</p>
                       <div>
-                        <span class="badge badge-pill badge-primary">{{course.updateDate | date}} Última actualización</span>
-                        <span class="badge badge-pill badge-primary">{{course.totalClasses}} Clases</span>
-                        <span class="badge badge-pill badge-primary">Nivel {{course.level}}</span>
+                        <span class="badge badge-pill badge-primary">Última actualización: {{course.createDate | date}}</span>
+                        <span class="badge badge-pill badge-primary">Clases: 24</span>
+                        <span class="badge badge-pill badge-primary">Nivel: {{course.level}}</span>
                       </div>
                       <a routerLink="/curso/{{course.id}}" class="btn btn-primary mt-4">¡Quiero ver más!</a>
                     </div>
