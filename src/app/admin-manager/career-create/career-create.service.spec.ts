@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CareerAdminService } from './career-admin.service';
+import { CareerCreateService } from './career-create.service';
 
-describe('CareerAdminService', () => {
-  let service: CareerAdminService;
+describe('CareerCreateService', () => {
+  let service: CareerCreateService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CareerAdminService);
+    service = TestBed.inject(CareerCreateService);
   });
 
   it('should be created', () => {

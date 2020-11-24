@@ -8,7 +8,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
-import { CareerComponent } from './admin/career/career.component';
 import { CareerPageComponent } from './pages/career-page/career-page.component';
 import { RoadmapPageComponent } from './pages/roadmap-page/roadmap-page.component';
 

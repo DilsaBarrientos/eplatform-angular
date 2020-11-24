@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RoadmapComponent } from './roadmap.component';
+import { CareerCreateComponent } from './career-create.component';
 
-describe('RoadmapComponent', () => {
-  let component: RoadmapComponent;
-  let fixture: ComponentFixture<RoadmapComponent>;
+describe('CareerCreateComponent', () => {
+  let component: CareerCreateComponent;
+  let fixture: ComponentFixture<CareerCreateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RoadmapComponent ]
+      declarations: [ CareerCreateComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RoadmapComponent);
+    fixture = TestBed.createComponent(CareerCreateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

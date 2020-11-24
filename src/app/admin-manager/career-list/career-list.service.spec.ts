@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RoadmapAdminService } from './roadmap-admin.service';
+import { CareerListService } from './career-list.service';
 
-describe('RoadmapAdminService', () => {
-  let service: RoadmapAdminService;
+describe('CareerListService', () => {
+  let service: CareerListService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(RoadmapAdminService);
+    service = TestBed.inject(CareerListService);
   });
 
   it('should be created', () => {

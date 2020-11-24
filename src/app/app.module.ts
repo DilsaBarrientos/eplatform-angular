@@ -16,10 +16,12 @@ import { FooterComponent } from './shared/footer/footer.component';
 
 import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
-import { CareerComponent } from './admin/career/career.component';
-import { RoadmapComponent } from './admin/roadmap/roadmap.component';
 import { CareerPageComponent } from './pages/career-page/career-page.component';
 import { RoadmapPageComponent } from './pages/roadmap-page/roadmap-page.component';
+import { CareerCreateComponent } from './admin-manager/career-create/career-create.component';
+import { CareerListComponent } from './admin-manager/career-list/career-list.component';
+import { CareerCreateService } from './admin-manager/career-create/career-create.service';
+
 
 @NgModule({
   declarations: [
@@ -30,10 +32,11 @@ import { RoadmapPageComponent } from './pages/roadmap-page/roadmap-page.componen
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-    CareerComponent,
-    RoadmapComponent,
     CareerPageComponent,
-    RoadmapPageComponent
+    RoadmapPageComponent,
+    CareerCreateComponent,
+    CareerListComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,7 @@ import { RoadmapPageComponent } from './pages/roadmap-page/roadmap-page.componen
     HomeModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CareerCreateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
