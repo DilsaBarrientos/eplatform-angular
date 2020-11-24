@@ -47,6 +47,10 @@ import { CareerCreateService } from './admin-manager/career-create/career-create
     HomeModule,
     HttpClientModule
   ],
+  exports: [
+    CareerCreateComponent,
+    CareerListComponent
+  ],
   providers: [CareerCreateService],
   bootstrap: [AppComponent]
 })

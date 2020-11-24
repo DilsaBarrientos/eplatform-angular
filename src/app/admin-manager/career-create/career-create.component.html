@@ -1,1 +1,30 @@
-<p>career-create works!</p>
+<section class="section section-lg pt-lg-0 section-contact-us">
+    <div class="container">
+      <div class="row justify-content-center mt--300">
+        <div class="col-lg-8">
+          <div class="card bg-gradient-secondary shadow">
+            <div class="card-body p-lg-5">
+              <h4 class="mb-1">Agregar Carrera</h4>
+              <p class="mt-0">xxxx</p>
+              <div class="form-group mt-5" [ngClass]="{'focused':focus===true}">
+                <class class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-user-run"></i></span>
+                  </div>
+                  <input [(ngModel)]="career.name" class="form-control" placeholder="Career Name" type="text" (focus)="focus=true" 
+                  (blur)="focus=false">
+                </class>
+                </div>
+              </div>
+              <div class="form-group mb-4">
+                <textarea type="text" [(ngModel)]= "career.description" class="form-control form-control-alternative" name="name" rows="4" cols="80" placeholder="Career Description"></textarea>
+              </div>
+              <div>
+                <button (click)= "this.newCareer()" type="button" class="btn btn-default btn-round btn-block btn-lg">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

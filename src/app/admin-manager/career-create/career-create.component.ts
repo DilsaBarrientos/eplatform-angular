@@ -3,6 +3,7 @@ import { Career } from './model/career';
 import { CareerCreateService } from './career-create.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-career-create',
   templateUrl: './career-create.component.html',
@@ -10,14 +11,19 @@ import { Router } from '@angular/router';
 })
 export class CareerCreateComponent implements OnInit {
 
-  career: Career[];
+  career: Career = {
+    name: '',
+    description: ''
+  };
 
   constructor(private careerCreateService : CareerCreateService, private router: Router) { }
 
-  ngOnInit(): {
-    this.career = 
+  ngOnInit(): void {
+    this.career = this.careerCreateService.newCareer();
   }
-  
 
-
-}
+  newCareer(): void{
+    this.careerCreateService.addCareer(this.career);
+    this.career = this.careerCreateService.newCareer();
+    }
+  }

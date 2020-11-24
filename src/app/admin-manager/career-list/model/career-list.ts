@@ -1,4 +1,4 @@
-export interface Career {
+export interface CareerList {
     active: Boolean;
     createDate: String;
     description: String;

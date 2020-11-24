@@ -12,6 +12,10 @@ export class CareerCreateService {
 
   constructor(private readonly http: HttpClient) { }
 
+  getCareers(){
+    return this.careers;
+  }
+
   addCareer(career: Career){
     this.careers.push(career);
   }
@@ -22,5 +26,6 @@ export class CareerCreateService {
       description:'',
     };
   }
+  
 
 }
