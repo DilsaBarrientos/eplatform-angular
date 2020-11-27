@@ -1,4 +1,4 @@
 export interface Career {
     name: String;
-    description: String
+    description?: String;
 }
