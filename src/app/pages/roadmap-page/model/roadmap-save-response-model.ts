@@ -1,4 +1,3 @@
-import { CourseList } from "./course-list-model";
 
 export interface RoadmapSaveResponse{
     id: Number,
@@ -10,6 +9,6 @@ export interface RoadmapSaveResponse{
     active?: Boolean,
     totalCourses?: Number,
     createDate: String,
-    courseIds: Array<CourseList>,
-    updateDate?: String
+    updateDate?: String,
+    courses: string[]
 }

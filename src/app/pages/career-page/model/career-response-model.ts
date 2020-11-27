@@ -1,4 +1,3 @@
-import { RoadmapListResponse } from "./roadmap-list-model";
 
 export interface CareerSaveResponse{
     id: Number,
@@ -10,5 +9,5 @@ export interface CareerSaveResponse{
     createDate: String,
     updateDate: String,
     active: Boolean,
-    roadmaps?: RoadmapListResponse[]
+    roadmaps: string[]
 }
