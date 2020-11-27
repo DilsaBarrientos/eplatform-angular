@@ -15,7 +15,9 @@ export class RoadmapPageComponent implements OnInit {
 
   roadmapInfo: RoadmapSaveResponse;
 
-  courses: Array<CourseList>;
+  coursesLinks: string[];
+
+  courses: CourseList[] = [];
 
   constructor(private readonly roadmapPageService: RoadmapPageService,
     private readonly route: ActivatedRoute) { }
@@ -33,9 +35,18 @@ export class RoadmapPageComponent implements OnInit {
     this.roadmapPageService.getRoadmapById(this.roadmapId)
     .subscribe(roadmap => {
       this.roadmapInfo = roadmap;
-      this.courses = roadmap.courseIds;
-
+      this.coursesLinks = roadmap.courses;
+      this.getCourses();
     });
+  }
+
+  getCourses(){
+
+    for(let link of this.coursesLinks){
+
+      this.roadmapPageService.getCourse(link)
+        .subscribe(course => this.courses.push(course));
+    }
   }
 
 }
