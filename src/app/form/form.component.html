@@ -1,0 +1,70 @@
+<section class="section section-lg pt-lg-0 section-contact-us">
+    <div class="container">
+        <div class="row justify-content-center mt--300">
+            <div class="col-lg-8">
+                <div class="card bg-gradient-secondary shadow">
+                    <div class="card-body p-lg-5">
+
+
+                        <form [formGroup]="form" novalidate (ngSubmit)="save($event)">
+                            <h2>Create Roadmaps: </h2>
+                            <p>
+                                Id: <br/>
+                                <input type="text" formControlName="id">
+                            </p>
+                            <p>
+                                Name: <br/>
+                                <input type="text" formControlName="name">
+                            </p>
+                            <p>
+                                Description: <br/>
+                                <textarea cols="30" rows="10" formControlName="description"></textarea> {{ form.get('description').value.length }}/80
+                            </p>
+
+                            <div *ngIf="form.get('description').errors && form.get('description').touched">
+                                <p *ngIf="form.get('description').hasError('required')">
+                                    Es un campo requerido
+                                </p>
+                                <p *ngIf="form.get('description').hasError('maxlength')">
+                                    Te pasaste, máximo deben haber 80 caracteres.
+                                </p>
+                            </div>
+
+                            <p>
+                                Detail: <br/>
+                                <textarea cols="30" rows="10" formControlName="detail"></textarea> {{ form.get('detail').value.length }}/80
+                            </p>
+                            <div *ngIf="form.get('detail').errors && form.get('detail').touched">
+                                <p *ngIf="form.get('detail').hasError('required')">
+                                    Es un campo requerido
+                                </p>
+                                <p *ngIf="form.get('detail').hasError('maxlength')">
+                                    Te pasaste, máximo deben haber 80 caracteres.
+                                </p>
+                            </div>
+
+                            <p>
+                                IconId: <br/>
+                                <input type="text" formControlName="iconId">
+                            </p>
+                            <p>
+                                BannerId: <br/>
+                                <input type="text" formControlName="bannerId">
+                            </p>
+                            <p>
+                                Active: <br/>
+                                <input type="radio" name="active" formControlName="active" value="yes"> yes<br>
+                                <input type="radio" name="active" formControlName="active" value="no"> No<br>
+                            </p>
+                            <p>
+                                local Date Time: <br/>
+                                <input type="date" formControlName="localDateTime">
+                            </p>
+                            <button type="submit" [disabled]="form.invalid">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

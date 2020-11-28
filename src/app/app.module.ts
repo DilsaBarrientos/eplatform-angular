@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { CareerComponent } from './admin/career/career.component';
 import { RoadmapComponent } from './admin/roadmap/roadmap.component';
 import { CareerAdminService } from './admin/career/career-admin.service';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CareerAdminService } from './admin/career/career-admin.service';
     FooterComponent,
     LoginComponent,
     CareerComponent,
-    RoadmapComponent
+    RoadmapComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { CareerAdminService } from './admin/career/career-admin.service';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
+    ReactiveFormsModule
   ],
   providers: [
     CareerAdminService
