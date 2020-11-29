@@ -16,7 +16,7 @@ export class CareerComponent implements OnInit {
 
   createCareerForm: FormGroup;
 
-  page: Number;
+  actualPage: number;
 
   constructor(private _builder: FormBuilder, private readonly careerAdminService: CareerAdminService) {
 
@@ -30,12 +30,7 @@ export class CareerComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.careerAdminService.findByParameters()
-            .subscribe(responsePagination => {
-                this.careersList = responsePagination.result;
-                this.page = responsePagination.page;
-                console.log(responsePagination);
-            })
+    this.findCareers(0);
   }
 
   createCareer(value){
@@ -46,6 +41,24 @@ export class CareerComponent implements OnInit {
 
     this.careerAdminService.create(careerToCreate);
     this.createCareerForm.reset();
+    this.findCareers(this.actualPage);
+  }
+
+  findCareers(pageToRetrive: number){
+    this.careerAdminService.findByParameters(pageToRetrive)
+            .subscribe(responsePagination => {
+                this.careersList = responsePagination.result;
+                this.actualPage = responsePagination.page;
+                console.log(responsePagination);
+            })
+  }
+
+  nextPage(){
+    this.findCareers(this.actualPage +1);
+  }
+
+  previousPage(){
+    this.findCareers(this.actualPage -1);
   }
 
   

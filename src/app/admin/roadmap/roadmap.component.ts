@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CareerPageService } from 'src/app/pages/career-page/career-page.service';
 import { CareerSaveResponse } from 'src/app/pages/career-page/model/career-response-model';
+import { RoadmapSaveResponse } from 'src/app/pages/roadmap-page/model/roadmap-save-response-model';
 import { RoadmapSaveRequest } from './model/roadmap-save-request';
 import { RoadmapAdminService } from './roadmap-admin.service';
 
@@ -18,6 +19,8 @@ export class RoadmapComponent implements OnInit {
   careerInfo: CareerSaveResponse;
 
   createRoadmapForm: FormGroup;
+
+  roadmapsList: RoadmapSaveResponse[] = [];
 
   page: Number;
 
@@ -38,6 +41,7 @@ export class RoadmapComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.careerId = params.get('id');
       this.getCareerInfo();
+
     })
   }
 
@@ -49,10 +53,20 @@ export class RoadmapComponent implements OnInit {
     }
 
     this.roadmapAdminService.create(roadmapToCreate);
+    this.createRoadmapForm.reset();
   }
 
   getCareerInfo(){
-    this.careerPageService.getCareerById(this.careerId).subscribe(res => this.careerInfo = res);
+    this.careerPageService.getCareerById(this.careerId).subscribe(res => {
+      this.careerInfo = res;
+      for(let roadmapLink of this.careerInfo.roadmaps){
+        this.roadmapAdminService.findRoadmapByUrl(roadmapLink).subscribe(
+          roadmap => this.roadmapsList.push(roadmap));
+      }
+    
+    });
+
+    
   }
 
 }

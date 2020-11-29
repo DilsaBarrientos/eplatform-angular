@@ -19,7 +19,7 @@ export class CareerAdminService {
   }
 
 
-  findByParameters(): Observable<ResponsePagination> {
-    return this.http.get<ResponsePagination>('http://localhost:8080/api/v1/careers');
+  findByParameters(page: number): Observable<ResponsePagination> {
+    return this.http.get<ResponsePagination>(`http://localhost:8080/api/v1/careers?page=${page}&size=4`);
   }
 }
