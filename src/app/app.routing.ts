@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { CareerComponent } from './admin/career/career.component';
 import { CareerPageComponent } from './pages/career-page/career-page.component';
 import { RoadmapPageComponent } from './pages/roadmap-page/roadmap-page.component';
+import { RoadmapComponent } from './admin/roadmap/roadmap.component';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
@@ -20,6 +21,8 @@ const routes: Routes =[
     { path: 'login',          component: LoginComponent },
     {path: 'carrera/:id', component: CareerPageComponent},
     {path: 'ruta/:id', component: RoadmapPageComponent},
+    {path: 'admin/carreras', component: CareerComponent},
+    {path: 'admin/carreras/:id', component: RoadmapComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
