@@ -12,10 +12,7 @@ export class CareerAdminService {
   constructor(private readonly http: HttpClient) { }
 
   create(careerToCreate: CareerSaveRequest) {
-    this.http.post('http://localhost:8080/api/v1/careers', careerToCreate).subscribe(
-      data => console.log(data),
-      error => console.log("Error: " + error)
-    )
+    return this.http.post('http://localhost:8080/api/v1/careers', careerToCreate);
   }
 
 

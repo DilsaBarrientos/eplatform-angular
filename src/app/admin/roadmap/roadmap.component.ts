@@ -52,7 +52,13 @@ export class RoadmapComponent implements OnInit {
       detail: value.detail
     }
 
-    this.roadmapAdminService.create(roadmapToCreate);
+    this.roadmapAdminService.create(roadmapToCreate).subscribe(x =>{
+       let roadmapCreatedId = x.headers.get('location').split('/')[4];
+       this.roadmapAdminService.linkRoadmapToCareer(this.careerId, roadmapCreatedId).subscribe(y => {
+         console.log(y);
+         this.getCareerInfo();
+       });
+    } );
     this.createRoadmapForm.reset();
   }
 
