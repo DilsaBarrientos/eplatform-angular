@@ -17,15 +17,14 @@
           <div class="col px-0">
             <div class="row">
               <div class="col-lg-6">
-                <h1 class="display-3  text-white">Detalles de carrera
-                </h1>
-                <h5 class="display-4  text-white">Nombre: <span>{{careerInfo.name}}</span></h5>
-                <h5 class="display-4  text-white">Descripción: <span>{{careerInfo.description}}</span></h5>
-                <h5 class="display-4  text-white">Icono: <span>{{careerInfo.icon}}</span></h5>
-                <h5 class="display-4  text-white">Activo: <span>Sí</span></h5>
-                <h5 class="display-4  text-white">Número de rutas: <span>{{careerInfo.totalRoadmaps}}</span></h5>
-                <h5 class="display-4  text-white">Creación: <span>{{careerInfo.createDate | date}}</span></h5>
-                <h5 class="display-4  text-white">Actualizado: <span>{{careerInfo.updateDate | date}}</span></h5>
+                <h1 class="display-3  text-white">Detalles de carrera</h1>
+                <h5 class="col-sm">Nombre: <span>{{careerInfo.name}}</span></h5>
+                <h5 class="col-sm">Descripción: <span>{{careerInfo.description}}</span></h5>
+                <h5 class="col-sm">Icono: <span>{{careerInfo.icon}}</span></h5>
+                <h5 class="col-sm">Activo: <span>Sí</span></h5>
+                <h5 class="col-sm">Número de rutas: <span>{{careerInfo.totalRoadmaps}}</span></h5>
+                <h5 class="col-sm">Creación: <span>{{careerInfo.createDate | date}}</span></h5>
+                <h5 class="col-sm">Actualizado: <span>{{careerInfo.updateDate | date}}</span></h5>
                 <div class="btn-wrapper">
                   <a href="https://demos.creative-tim.com/argon-design-system-angular/documentation/alerts?ref=adsa-landing-page" class="btn btn-info btn-icon mb-3 mb-sm-0">
                     <span class="btn-inner--icon"><i class="fa fa-code"></i></span>
@@ -61,7 +60,7 @@
                     <div class="card bg-gradient-secondary shadow">
                         <form [formGroup]="createRoadmapForm" (ngSubmit)="createRoadmap(createRoadmapForm.value)">
                         
-                            <div class="card-body p-lg-5">Crea rutas
+                            <div class="card-body p-lg-5">Crea rutas de aprendizaje
                             <h4 class="mb-1">Para la carrera</h4>
                             <p class="mt-0">debes ingresar su nombre, descripción y detalle</p>
 
@@ -77,16 +76,22 @@
                                 </div>
                                 <div *ngIf="createRoadmapForm.get('name').hasError('required') && createRoadmapForm.get('name').touched" class="alert alert-danger">Debe ingresar un nombre</div>
                                 <div *ngIf="createRoadmapForm.get('name').hasError('minlength') && createRoadmapForm.get('name').touched" class="alert alert-danger">Longitud mínima de 3 caracteres</div>
+                                <div *ngIf="createRoadmapForm.get('name').hasError('maxlength') && createRoadmapForm.get('name').touched" class="alert alert-danger">Longitud máxima de 45 caracteres</div>
                             </div>
 
                             <div class="form-group mb-4">
                                 <textarea formControlName="description" class="form-control form-control-alternative" name="name" rows="4"
                                     cols="80" placeholder="Descripción..."></textarea>
+                                    <div *ngIf="createRoadmapForm.get('description').hasError('required') && createRoadmapForm.get('description').touched" class="alert alert-danger">Debe ingresar una descripción</div>
+                                    <div *ngIf="createRoadmapForm.get('description').hasError('minlength') && createRoadmapForm.get('description').touched" class="alert alert-danger">Longitud mínima de 3 caracteres</div>
+                                    <div *ngIf="createRoadmapForm.get('description').hasError('maxlength') && createRoadmapForm.get('description').touched" class="alert alert-danger">Longitud máxima de 700 caracteres</div>
                             </div>
 
                             <div class="form-group mb-4">
                                 <textarea formControlName="detail" class="form-control form-control-alternative" name="name" rows="4"
                                     cols="80" placeholder="Detalle..."></textarea>
+                                    <div *ngIf="createRoadmapForm.get('detail').hasError('required') && createRoadmapForm.get('detail').touched" class="alert alert-danger">Debe ingresar un detalle</div>
+                                    <div *ngIf="createRoadmapForm.get('detail').hasError('minlength') && createRoadmapForm.get('detail').touched" class="alert alert-danger">Longitud mínima de 3 caracteres</div>                                    
                             </div>
 
                             <div>
@@ -115,7 +120,7 @@
         <div class="row row-grid align-items-center">
           <div class="col-md-6 order-lg-2 ml-lg-auto">
             <div class="position-relative pl-md-5">
-              <img src="./assets/img/ill/ill-2.svg" class="img-center img-fluid">
+              <img  class="img-center img-fluid">
             </div>
           </div>
           <div class="col-lg-6 order-lg-1">
@@ -126,8 +131,8 @@
                 </div>
               </div>
               <div class="pl-4">
-                <h4 class="display-3 text-white">Carreras</h4>
-                <p class="text-white">Estas son las carreras registradas actualmente en el sistema</p>
+                <h4 class="display-3 text-white">Rutas de aprendizaje</h4>
+                <p class="text-white">Estas son las rutas de aprendizaje registradas actualmente para esta carrera</p>
               </div>
             </div>
 
