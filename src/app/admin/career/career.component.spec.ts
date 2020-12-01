@@ -8,9 +8,14 @@ describe('CareerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CareerComponent ]
-    })
-    .compileComponents();
+      declarations: [ CareerComponent ],
+      imports:[
+
+      ],
+      providers:[
+      ],
+    }).compileComponents();
+   
   }));
 
   beforeEach(() => {
@@ -19,7 +24,13 @@ describe('CareerComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  fdescribe('When createCareer() is called', () => {
+
+    fit('all should be fine', () => {
+      
+    })
+  })
+
+ 
+
 });
