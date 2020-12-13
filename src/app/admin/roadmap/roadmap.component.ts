@@ -66,15 +66,19 @@ export class RoadmapComponent implements OnInit {
   getCareerInfo(){
     this.careerPageService.getCareerById(this.careerId).subscribe(res => {
       this.careerInfo = res;
-      
+      this.roadmapsList = [];
       for(let roadmapLink of this.careerInfo.roadmaps){
         this.roadmapAdminService.findRoadmapByUrl(roadmapLink).subscribe(
           roadmap => this.roadmapsList.push(roadmap));
       }
     
     });
+  }
 
-    
+  deleteById(id: number){
+    this.roadmapAdminService.deleteById(id).subscribe(x => {
+      this.getCareerInfo();
+    })
   }
 
 }

@@ -67,6 +67,12 @@ export class CareerComponent implements OnInit {
     this.findCareers(0);
   }
 
+  deleteById(id: number){
+    this.careerAdminService.deleteById(id).subscribe(x => {
+      this.findCareers(0);
+    })
+  }
+
   
 
 }

@@ -27,4 +27,8 @@ export class RoadmapAdminService {
     let roadmapToAddId: number = +roadmapCreatedId;
     return this.http.patch(url, {roadmapId: roadmapToAddId});
   }
+
+  deleteById(id: number): Observable<any> {
+    return this.http.delete(`http://localhost:8080/api/v1/roadmaps/${id}`);
+  }
 }

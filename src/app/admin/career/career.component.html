@@ -140,7 +140,7 @@
                           <th scope="col">Actualizado</th>
                           <th scope="col">Creación</th>
                           <th scope="col">Activo</th>
-                          <th scope="col">Acciones</th>
+                          
                         </tr>
                         </thead>
                         <tbody>
@@ -155,6 +155,7 @@
                           <td>{{career.createDate | date}}</td>
                           <td> Sí </td>
                           <td><a routerLink="/admin/carreras/{{career.id}}" class="btn btn-info btn-icon mb-3 mb-sm-0">Detalles</a> </td>
+                          <td><a (click) = "deleteById(career.id)" class="btn btn-danger btn-icon mb-3 mb-sm-0">Eliminar</a> </td>
                         </tr>
                         </tbody>
                       </table>
