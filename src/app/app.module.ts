@@ -21,6 +21,7 @@ import { RoadmapComponent } from './admin/roadmap/roadmap.component';
 import { CareerPageComponent } from './pages/career-page/career-page.component';
 import { RoadmapPageComponent } from './pages/roadmap-page/roadmap-page.component';
 import { CareerAdminService } from './admin/career/career-admin.service';
+import { UploadComponent } from './admin/upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CareerAdminService } from './admin/career/career-admin.service';
     CareerComponent,
     RoadmapComponent,
     CareerPageComponent,
-    RoadmapPageComponent
+    RoadmapPageComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,

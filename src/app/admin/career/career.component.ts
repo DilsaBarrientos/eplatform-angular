@@ -63,6 +63,10 @@ export class CareerComponent implements OnInit {
     this.findCareers(this.actualPage -1);
   }
 
+  findCareersPageZero(){
+    this.findCareers(0);
+  }
+
   
 
 }
