@@ -56,6 +56,7 @@ export class RoadmapComponent implements OnInit {
        let roadmapCreatedId = x.headers.get('location').split('/')[4];
        this.roadmapAdminService.linkRoadmapToCareer(this.careerId, roadmapCreatedId).subscribe(y => {
          console.log(y);
+         this.roadmapsList = [];
          this.getCareerInfo();
        });
     } );
@@ -65,6 +66,7 @@ export class RoadmapComponent implements OnInit {
   getCareerInfo(){
     this.careerPageService.getCareerById(this.careerId).subscribe(res => {
       this.careerInfo = res;
+      
       for(let roadmapLink of this.careerInfo.roadmaps){
         this.roadmapAdminService.findRoadmapByUrl(roadmapLink).subscribe(
           roadmap => this.roadmapsList.push(roadmap));

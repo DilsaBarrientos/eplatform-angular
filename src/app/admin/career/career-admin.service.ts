@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ResponsePagination } from 'src/app/home/model/response-pagination-model';
@@ -11,8 +11,8 @@ export class CareerAdminService {
 
   constructor(private readonly http: HttpClient) { }
 
-  create(careerToCreate: CareerSaveRequest) {
-    return this.http.post('http://localhost:8080/api/v1/careers', careerToCreate);
+  create(careerToCreate: CareerSaveRequest): Observable<HttpResponse<object>> {
+    return this.http.post('http://localhost:8080/api/v1/careers', careerToCreate, {observe: 'response'});
   }
 
 

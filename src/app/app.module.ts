@@ -20,6 +20,7 @@ import { CareerComponent } from './admin/career/career.component';
 import { RoadmapComponent } from './admin/roadmap/roadmap.component';
 import { CareerPageComponent } from './pages/career-page/career-page.component';
 import { RoadmapPageComponent } from './pages/roadmap-page/roadmap-page.component';
+import { CareerAdminService } from './admin/career/career-admin.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { RoadmapPageComponent } from './pages/roadmap-page/roadmap-page.componen
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CareerAdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
