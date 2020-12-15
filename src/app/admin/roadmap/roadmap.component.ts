@@ -14,6 +14,8 @@ import { RoadmapAdminService } from './roadmap-admin.service';
 })
 export class RoadmapComponent implements OnInit {
 
+  uploadedFile: File;
+
   careerId: String
 
   careerInfo: CareerSaveResponse;
@@ -80,6 +82,30 @@ export class RoadmapComponent implements OnInit {
       this.getCareerInfo();
     })
   }
+
+  fileChange(element) {
+    this.uploadedFile = element.target.files[0];
+  }
+
+  upload() {
+    let formData = new FormData();
+      formData.append("file",this.uploadedFile);
+    this.roadmapAdminService.uploadFile(formData, '/api/v1/roadmaps/upload-sheets').subscribe((res)=> 
+    {
+      for(let index in res){
+        let roadmapCreatedUrl = res[index];
+
+        let roadmapCreatedId = roadmapCreatedUrl.split('/')[4];
+      this.roadmapAdminService.linkRoadmapToCareer(this.careerId, roadmapCreatedId).subscribe(y => {
+      });
+
+      }
+
+      this.getCareerInfo();
+
+      
+    });
+    }
 
 }
 

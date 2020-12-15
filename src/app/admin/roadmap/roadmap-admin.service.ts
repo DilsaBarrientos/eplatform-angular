@@ -31,4 +31,9 @@ export class RoadmapAdminService {
   deleteById(id: number): Observable<any> {
     return this.http.delete(`http://localhost:8080/api/v1/roadmaps/${id}`);
   }
+
+  uploadFile(formData: FormData, url: string): Observable<string[]>{
+
+    return this.http.post<string[]>('http://localhost:8080'+url, formData);
+  }
 }
