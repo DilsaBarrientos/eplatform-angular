@@ -63,6 +63,16 @@ export class CareerComponent implements OnInit {
     this.findCareers(this.actualPage -1);
   }
 
+  findCareersPageZero(){
+    this.findCareers(0);
+  }
+
+  deleteById(id: number){
+    this.careerAdminService.deleteById(id).subscribe(x => {
+      this.findCareers(0);
+    })
+  }
+
   
 
 }
