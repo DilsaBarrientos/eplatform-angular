@@ -1,5 +1,5 @@
 {
-    "name": "eplatform-angular",
+    "name": "argon-design-system-angular",
     "version": "1.1.0",
     "scripts": {
         "heroku-postbuild": "ng build --prod",
@@ -17,6 +17,7 @@
     },
     "private": true,
     "dependencies": {
+        "express": "^4.17.1",
         "@angular/animations": "9.0.5",
         "@angular/cli": "9.0.5",
         "@angular/compiler-cli": "9.0.5",
@@ -30,7 +31,6 @@
         "@angular/platform-browser-dynamic": "9.0.5",
         "@angular/router": "9.0.5",
         "@ng-bootstrap/ng-bootstrap": "6.0.0",
-        "express": "^4.17.1",
         "jw-bootstrap-switch-ng2": "2.0.5",
         "moment": "^2.24.0",
         "ng2-nouislider": "1.7.13",
@@ -39,8 +39,8 @@
         "popper.js": "1.14.7",
         "rxjs": "6.5.4",
         "rxjs-compat": "6.5.4",
-        "typescript": "3.7.5",
-        "zone.js": "0.10.2"
+        "zone.js": "0.10.2",
+        "typescript": "3.7.5"
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "0.900.5",
