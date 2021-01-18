@@ -12,28 +12,28 @@ export class RoadmapAdminService {
   constructor(private readonly http: HttpClient) { }
 
   create(roadmapToCreate: RoadmapSaveRequest): Observable<HttpResponse<object>>{
-    return this.http.post('http://localhost:8080/api/v1/roadmaps', roadmapToCreate, {observe: 'response'});
+    return this.http.post('https://frozen-river-17298.herokuapp.com/api/v1/roadmaps', roadmapToCreate, {observe: 'response'});
 
   }
 
   findRoadmapByUrl(roadmapUrl: string): Observable<RoadmapSaveResponse> {
     console.log(roadmapUrl);
-    return this.http.get<RoadmapSaveResponse>(`http://localhost:8080${roadmapUrl}`);
+    return this.http.get<RoadmapSaveResponse>(`https://frozen-river-17298.herokuapp.com${roadmapUrl}`);
   }
 
   linkRoadmapToCareer(careerId: String, roadmapCreatedId: string) {
-    let url = `http://localhost:8080/api/v1/careers/${careerId}/roadmaps`;
+    let url = `https://frozen-river-17298.herokuapp.com/api/v1/careers/${careerId}/roadmaps`;
     console.log(url);
     let roadmapToAddId: number = +roadmapCreatedId;
     return this.http.patch(url, {roadmapId: roadmapToAddId});
   }
 
   deleteById(id: number): Observable<any> {
-    return this.http.delete(`http://localhost:8080/api/v1/roadmaps/${id}`);
+    return this.http.delete(`https://frozen-river-17298.herokuapp.com/api/v1/roadmaps/${id}`);
   }
 
   uploadFile(formData: FormData, url: string): Observable<string[]>{
 
-    return this.http.post<string[]>('http://localhost:8080'+url, formData);
+    return this.http.post<string[]>('https://frozen-river-17298.herokuapp.com'+url, formData);
   }
 }

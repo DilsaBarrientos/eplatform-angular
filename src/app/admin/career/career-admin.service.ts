@@ -12,16 +12,17 @@ export class CareerAdminService {
   constructor(private readonly http: HttpClient) { }
 
   create(careerToCreate: CareerSaveRequest): Observable<HttpResponse<object>> {
-    return this.http.post('http://localhost:8080/api/v1/careers', careerToCreate, {observe: 'response'});
+    return this.http.post('https://frozen-river-17298.herokuapp.com/api/v1/careers', careerToCreate, {observe: 'response'}); 
+
   }
 
 
   findByParameters(page: number): Observable<ResponsePagination> {
-    return this.http.get<ResponsePagination>(`http://localhost:8080/api/v1/careers?page=${page}&size=4`);
+    return this.http.get<ResponsePagination>(`https://frozen-river-17298.herokuapp.com/api/v1/careers?page=${page}&size=4`);
   }
 
   deleteById(id: number): Observable<any> {
-    return this.http.delete(`http://localhost:8080/api/v1/careers/${id}`);
+    return this.http.delete(`https://frozen-river-17298.herokuapp.com/api/v1/careers/${id}`);
   }
 
 }
